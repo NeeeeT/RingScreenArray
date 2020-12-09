@@ -14,15 +14,15 @@ DrawInit = () => {
 }
 SceneInit = () => {
     let app = document.getElementById("app");
-    let colLength = 32;
-    let rowLength = 32;
+    let colLength = 100;
+    let rowLength = 16;
     app.innerHTML = ``;
     for (let j = 0; j < rowLength; j++) {
         app.innerHTML += `<div id="${j}"><div>`;
         let col = document.getElementById(j);
         col.innerHTML = ``;
         for (let i = 0; i < colLength; i++) {
-            col.innerHTML += `<div class="dot" id="(${j},${i})">○</div>`;
+            col.innerHTML += `<div class="dot" id={${j},${i}} x="${j}" y="${i}">○</div>`;
         }
     }
     app.innerHTML += `<div><a id="exportArr" href="#">輸出圖像陣列</a></div>`;
@@ -40,10 +40,13 @@ RegisterBtn = () => {
         })
     }
     exp.addEventListener("click", () => {
-        let tempArr = []
+        let tempArr = [];
+        // let xArr = [];
+        // let yArr = [];
         for (let i = 0; i < dot.length; i++) {
-            if (dot[i].innerText == "●")
+            if (dot[i].innerText == "●"){
                 tempArr.push(dot[i].id);
+            }
         }
         console.log(tempArr);
     })
