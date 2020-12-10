@@ -48,6 +48,7 @@ RegisterBtn = () => {
                 tempArr.push(dot[i].id);
             }
         }
-        console.log(tempArr);
+        // console.dir(tempArr);
+        console.log(JSON.stringify(tempArr));
     })
 }
